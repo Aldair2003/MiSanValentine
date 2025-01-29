@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Dome 💝</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Escena 1: Inicio -->
+        <div class="scene active" id="scene1">
+            <div class="card">
+                <h1>Mi querida Dome</h1>
+                <p>¿Me permites llevarte a un viaje mágico?</p>
+                <button class="btn-start">Comenzar</button>
+            </div>
+        </div>
+
+        <!-- Escena 2: Corazones -->
+        <div class="scene" id="scene2">
+            <div class="hearts-container">
+                <p class="message">Toca los corazones...</p>
+                <div class="hearts"></div>
+            </div>
+        </div>
+
+        <!-- Escena 3: Linternas -->
+        <div class="scene" id="scene3">
+            <div class="lanterns-container">
+                <p class="message">Como en tu película favorita...</p>
+                <div class="lanterns"></div>
+            </div>
+        </div>
+
+        <!-- Nueva Escena: Rapunzel -->
+        <div class="scene" id="scene-rapunzel">
+            <div class="card">
+                <img src="assets/images/rapunzel.jpg" alt="Rapunzel" class="rapunzel-img">
+                <h2>¿Quieres ser mi Rapunzel?</h2>
+                <div class="buttons">
+                    <button class="btn-yes">¡Sí! 💝</button>
+                    <button class="btn-no">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 4: Pregunta de Rapunzel -->
+        <div class="scene" id="scene4">
+            <div class="rapunzel-scene">
+                <img src="assets/images/tower.svg" alt="Torre" class="tower-img">
+                <div class="rapunzel-characters">
+                    <div class="character-container">
+                        <img src="https://vignette.wikia.nocookie.net/enredados/images/3/30/Rapunzel-Free-PNG-Image.png/revision/latest?cb=20170512043323&path-prefix=es" 
+                             alt="Rapunzel">
+                    </div>
+                    <div class="character-container">
+                        <img src="https://www.pngall.com/wp-content/uploads/5/Flynn-Rider-PNG-HD-Image.png" 
+                             alt="Flynn Rider">
+                    </div>
+                </div>
+                <h2 class="rapunzel-question">Mi dulce Dome...</h2>
+                <p>Como Flynn encontró a su Rapunzel, yo encontré mi princesa en ti</p>
+                <p class="question">¿Quieres ser mi Rapunzel?</p>
+                <div class="buttons">
+                    <button class="btn-yes">¡Sí, mi Flynn Rider! 💝</button>
+                    <button class="btn-no">No</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 5: Pregunta Final San Valentín -->
+        <div class="scene" id="scene5">
+            <div class="valentine-scene">
+                <!-- Sobre -->
+                <div class="envelope-wrapper">
+                    <div class="envelope">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-left"></div>
+                        <div class="envelope-right"></div>
+                        <div class="envelope-bottom"></div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                </div>
+
+                <!-- Carta -->
+                <div class="letter-wrapper">
+                    <div class="letter">
+                        <div class="valentine-card">
+                            <h2 class="valentine-title">Mi Princesa Dome...</h2>
+                            <div class="heart-decoration"></div>
+                            <p class="valentine-message">
+                                Mi dulce princesa,<br>
+                                En este día tan especial, quiero decirte<br>
+                                que eres la luz que ilumina mi mundo.<br>
+                                Como las linternas que brillan en el cielo,<br>
+                                así brilla mi amor por ti.
+                            </p>
+                            <p class="valentine-question">
+                                ¿Me concederías el honor<br>
+                                de ser mi San Valentín?<br>
+                                Con todo mi amor 💝
+                            </p>
+                            <div class="valentine-buttons">
+                                <button class="btn-valentine yes">¡Sí, mi amor! 💝</button>
+                                <button class="btn-valentine no">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 6: Final -->
+        <div class="scene" id="scene6">
+            <div class="final-celebration">
+                <div class="lanterns-finale"></div>
+                <div class="card">
+                    <h1>¡Te Amo Dome! 💝</h1>
+                    <p>Gracias por hacer cada día mágico...</p>
+                    <p>Por ser mi Rapunzel y mi San Valentín</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pascal animado -->
+    <div class="pascal-container">
+        <img src="https://64.media.tumblr.com/93a6afd96fc0ceee256847b55ff32bf9/tumblr_ongsotTxAk1tv83zuo1_400.gif" 
+             alt="Pascal saludando">
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

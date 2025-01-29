@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120">
+    <!-- Base más pequeña -->
+    <path d="M20,90 L20,30 C20,15 60,15 60,30 L60,90" 
+          fill="#8B7355"/>
+    
+    <!-- Techo más pequeño -->
+    <path d="M15,30 C15,5 65,5 65,30" 
+          fill="#614841"/>
+    
+    <!-- Ventana -->
+    <path d="M32,45 
+             C32,35 48,35 48,45 
+             L48,60 L32,60 Z" 
+          fill="#B4E4FF"/>
+    
+    <!-- Marco de la ventana -->
+    <path d="M30,45 
+             C30,33 50,33 50,45 
+             L50,62 L30,62 Z" 
+          fill="none"
+          stroke="#614841"
+          stroke-width="1.5"/>
+    
+    <!-- Balcón pequeño -->
+    <path d="M28,60 L52,60 L50,65 L30,65" 
+          fill="#614841"/>
+    
+    <!-- Detalles de piedras -->
+    <path d="M20,75 L60,75 M20,85 L60,85" 
+          stroke="#614841" 
+          stroke-width="1" 
+          stroke-dasharray="5,3"/>
+</svg> 

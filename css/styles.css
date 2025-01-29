@@ -1,0 +1,1340 @@
+:root {
+    --primary: #E8B4B8; /* Palo rosa exacto */
+    --secondary: #FFD1DC;
+    --accent: #FF6B8B;
+    --gold: #FFD700;
+    --purple: #9B6B9E;
+    --night-sky: #1a1a2e;
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --background: #1a1a2e;
+    --text: #333333;
+    --white: #FFFFFF;
+    --shadow: rgba(232, 180, 184, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background), #2a2a4e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Efecto de estrellas en el fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    animation: twinkle 4s infinite linear;
+    opacity: 0.3;
+}
+
+/* Fondo mágico */
+.magical-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,...') repeat;
+    animation: twinkle 4s infinite linear;
+}
+
+.floating-lights {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Escenas */
+.scene {
+    display: none;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.scene.active {
+    display: block;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.scene.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Tarjeta mágica */
+.magical-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.sparkles::before,
+.sparkles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+    animation: sparkle 2s infinite;
+}
+
+/* Títulos y textos */
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.romantic-text {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+}
+
+/* Botones mágicos */
+.btn, .btn-start, .btn-yes, .btn-no {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: var(--text-light);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 5px 15px rgba(232, 180, 184, 0.4);
+    position: relative;
+    overflow: hidden;
+    margin: 0.5rem;
+}
+
+.btn:hover, .btn-start:hover, .btn-yes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(232, 180, 184, 0.6);
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+}
+
+.btn:active, .btn-start:active, .btn-yes:active {
+    transform: translateY(-1px);
+}
+
+/* Efecto de brillo en botones */
+.btn::before, .btn-start::before, .btn-yes::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+.btn:hover::before, .btn-start:hover::before, .btn-yes:hover::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Animaciones */
+@keyframes sparkle {
+    0%, 100% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+}
+
+/* Estilos específicos para cada escena */
+/* ... Continuará en el siguiente mensaje ... */
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+    position: relative;
+}
+
+.scene {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.scene.active {
+    display: block;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto de brillo en las tarjetas */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 { 
+    font-size: 3rem; 
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 { font-size: 2.5rem; }
+
+p {
+    color: var(--text);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(232, 180, 184, 0.4);
+}
+
+/* Estilos para los corazones */
+.hearts-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hearts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 2rem 0;
+}
+
+.heart {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: float 3s infinite ease-in-out;
+    filter: drop-shadow(0 5px 15px var(--shadow));
+}
+
+.heart:hover {
+    transform: scale(1.2);
+}
+
+.heart img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Estilos para las linternas */
+.lanterns-container {
+    min-height: 400px;
+    position: relative;
+    background: linear-gradient(to bottom, var(--background), #2a2a4e);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.lantern {
+    position: absolute;
+    width: 50px;
+    height: 75px;
+    animation: floatLantern 4s infinite ease-in-out;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+}
+
+.lantern img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+
+/* Mensaje sobre las linternas */
+.message {
+    color: var(--white);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    position: relative;
+    z-index: 2;
+    animation: glowText 2s infinite alternate;
+}
+
+/* Animación para hacer brillar el texto */
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                     0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+/* Mejorar la animación de las linternas */
+@keyframes floatLantern {
+    0% {
+        transform: translateY(0) translateX(0);
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+    }
+    50% {
+        transform: translateY(-30px) translateX(10px);
+        filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9));
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes shimmer {
+    0% { transform: rotate(45deg) translateY(-100%); }
+    100% { transform: rotate(45deg) translateY(100%); }
+}
+
+@keyframes fadeInMessage {
+    from { 
+        opacity: 0; 
+        transform: translate(-50%, -40%);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        padding: 2rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    p { font-size: 1.1rem; }
+
+    .heart {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1.5rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    p { font-size: 1rem; }
+
+    .floating-message {
+        width: 90%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .hearts {
+        gap: 15px;
+    }
+
+    .heart {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.starry-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.game-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene {
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    padding: 20px;
+}
+
+.scene.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.love-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 107, 139, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.love-title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.love-text {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 2rem;
+}
+
+.magic-btn {
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+}
+
+.magic-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
+}
+
+/* Mensajes flotantes */
+.floating-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInMessage 0.5s ease;
+    z-index: 1000;
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rapunzel-intro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tower-img {
+    width: 200px;
+    height: auto;
+    margin: 2rem auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+.dialog-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(232, 180, 184, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+.typing-text {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    min-height: 2em;
+    animation: typing 3s steps(40, end);
+}
+
+.collect-hearts-game {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-area {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+
+.boat-img {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    animation: boatFloat 4s infinite ease-in-out;
+}
+
+/* Animaciones */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes boatFloat {
+    0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+    50% { transform: translateX(-50%) rotate(2deg); }
+}
+
+/* Estilos para el puzzle */
+.puzzle-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.puzzle-pieces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.puzzle-piece {
+    background: var(--primary);
+    padding: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Estilos para la celebración final */
+.celebration {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hearts-rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Mejoras en los corazones flotantes */
+.floating-heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: float 3s infinite ease-in-out;
+}
+
+.floating-heart svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.floating-heart:hover svg {
+    fill: var(--accent);
+    transform: scale(1.2);
+}
+
+.floating-heart.clicked {
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .magical-button, .yes-button, .no-button {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+
+    .floating-heart {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scene {
+        padding: 15px;
+    }
+
+    .floating-message {
+        width: 90%;
+        padding: 15px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+.rapunzel-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para la escena de Rapunzel */
+.rapunzel-scene {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.rapunzel-characters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.character-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    background: white;
+    box-shadow: 0 5px 15px rgba(232, 180, 184, 0.4);
+    transition: all 0.3s ease;
+}
+
+.character-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.character-container:hover {
+    transform: scale(1.1);
+    border-color: var(--gold);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.rapunzel-question {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin: 2rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la escena de San Valentín */
+.valentine-scene {
+    position: relative;
+    perspective: 1500px;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Contenedor del sobre */
+.envelope-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: all 0.8s ease;
+}
+
+.envelope-wrapper.back {
+    z-index: 1;
+    transform: scale(0.95) translateY(100px);
+    opacity: 0.5;
+}
+
+/* Sobre */
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 150px auto;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), #ffb6c1);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(232, 180, 184, 0.3);
+}
+
+.envelope-flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), #ffb6c1);
+    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.envelope-left,
+.envelope-right {
+    position: absolute;
+    width: 51%;
+    height: 100%;
+    top: 0;
+    background: var(--primary);
+    z-index: 2;
+}
+
+.envelope-left {
+    left: 0;
+    clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+}
+
+.envelope-right {
+    right: 0;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    background: var(--primary);
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+}
+
+/* Contenedor de la carta */
+.letter-wrapper {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.letter-wrapper.show {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 3;
+}
+
+/* Carta mejorada */
+.letter {
+    width: 90%;
+    max-width: 550px;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(232, 180, 184, 0.3);
+    margin: 0 auto;
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,182,193,0.1), rgba(255,255,255,0.1));
+    border-radius: 20px;
+}
+
+.valentine-card {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.valentine-card.show {
+    opacity: 1;
+}
+
+/* Estilos del texto */
+.valentine-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.4s;
+}
+
+.valentine-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin: 1.5rem 0;
+}
+
+.valentine-question {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: var(--accent);
+    line-height: 1.5;
+    margin: 2.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 2s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones */
+.valentine-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.btn-valentine {
+    min-width: 180px;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.4rem;
+    border-radius: 50px;
+    font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.btn-valentine.yes {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 8px 20px rgba(232, 180, 184, 0.4);
+}
+
+.btn-valentine.no {
+    background: white;
+    color: var(--accent);
+    border: 3px solid var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Efectos de hover en botones */
+.btn-valentine.yes:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(232, 180, 184, 0.6);
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+}
+
+.btn-valentine.no:hover {
+    transform: translateY(-5px);
+    background: var(--primary);
+    color: white;
+    border-color: transparent;
+}
+
+/* Efecto de brillo en botón sí */
+.btn-valentine.yes::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+.btn-valentine.yes:hover::before {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Corazones flotantes mejorados */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.floating-heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: none;
+    opacity: 0;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.7;
+}
+
+.floating-heart::before {
+    left: -50%;
+    top: 0;
+}
+
+.floating-heart::after {
+    left: 0;
+    top: -50%;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Estilos para Pascal */
+.pascal-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    z-index: 1000;
+    animation: walkPascal 20s infinite linear;
+}
+
+.pascal-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes walkPascal {
+    0% {
+        right: -80px;
+        transform: scaleX(1);
+    }
+    45% {
+        right: calc(100% + 80px);
+        transform: scaleX(1);
+    }
+    50% {
+        right: calc(100% + 80px);
+        transform: scaleX(-1);
+    }
+    95% {
+        right: -80px;
+        transform: scaleX(-1);
+    }
+    100% {
+        right: -80px;
+        transform: scaleX(1);
+    }
+}
+
+/* Estilos para la torre */
+.tower-img {
+    width: 100px;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+/* Contenedor de personajes mejorado */
+.character-container {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.character-name {
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.character-container:hover .character-name {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mejorar los botones */
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-yes, .btn-no {
+    min-width: 150px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-yes {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: white;
+    box-shadow: 0 5px 15px rgba(232, 180, 184, 0.4);
+}
+
+.btn-no {
+    background: white;
+    color: var(--accent);
+    border: 2px solid var(--primary);
+}
+
+/* Mejorar el fondo estrellado */
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Estilos mejorados para el texto de la carta */
+.valentine-message:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.valentine-message:nth-child(4) {
+    animation-delay: 1.8s;
+}
+
+.valentine-question {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: var(--accent);
+    line-height: 1.5;
+    margin: 2.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 2s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.valentine-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.8rem;
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.4s;
+}
+
+/* Animación para el texto */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Decoración de corazón mejorada */
+.heart-decoration {
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    position: relative;
+    transform: rotate(45deg);
+    margin: 40px auto;
+    animation: heartBeat 1.5s infinite;
+}
+
+.heart-decoration::before,
+.heart-decoration::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart-decoration::before {
+    left: -15px;
+    top: 0;
+}
+
+.heart-decoration::after {
+    top: -15px;
+    left: 0;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: rotate(45deg) scale(1);
+    }
+    14% {
+        transform: rotate(45deg) scale(1.3);
+    }
+    28% {
+        transform: rotate(45deg) scale(1);
+    }
+    42% {
+        transform: rotate(45deg) scale(1.3);
+    }
+    70% {
+        transform: rotate(45deg) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .letter {
+        padding: 2rem;
+    }
+
+    .valentine-title {
+        font-size: 2.8rem;
+    }
+
+    .valentine-message {
+        font-size: 1.6rem;
+    }
+
+    .valentine-question {
+        font-size: 2rem;
+    }
+
+    .btn-valentine {
+        min-width: 150px;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .letter {
+        padding: 1.5rem;
+    }
+
+    .valentine-title {
+        font-size: 2.4rem;
+    }
+
+    .valentine-message {
+        font-size: 1.4rem;
+    }
+
+    .valentine-question {
+        font-size: 1.8rem;
+    }
+
+    .btn-valentine {
+        min-width: 120px;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .valentine-buttons {
+        gap: 1rem;
+    }
+} 
